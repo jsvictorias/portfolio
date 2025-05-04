@@ -1,0 +1,13 @@
+{
+  "navbar": {
+    "Sobremim": "Sobre mim",
+    "Formação": "Formação",
+    "Projetos": "Projetos",
+    "QuerSite": "Quer fazer seu site?",
+    "Curriculo": "Currículo"
+  },
+  "home": {
+    "ola": "Olá Visitante",
+    "dev": "Programadora"
+  }
+}
