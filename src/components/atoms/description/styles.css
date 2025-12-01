@@ -1,0 +1,101 @@
+.container-description{
+    padding: 1rem;
+    text-align: center;
+    color: var(--color-white);
+    font-family: var(--font-title);
+}
+.hello {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+}
+.name {
+    font-size: 8rem;
+    margin-bottom: 3rem;
+}
+.sites, .free {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+.container-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    margin-top: 3rem;
+    list-style: none;
+}
+.container-icons li a {
+    all: unset;
+    cursor: pointer;
+}
+.icon {
+    font-size: 5rem;
+    color: white;
+    position: relative;
+}
+.icon::before {
+    content: "";
+    position: absolute;
+    left: -6rem;          
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6rem;          
+    height: 2px;
+    background: white;
+}
+.icon::after {
+    content: "";
+    position: absolute;
+    right: -6rem;        
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6rem;         
+    height: 2px;
+    background: white;
+}
+@keyframes blinkCursor {
+    0%, 49% {
+        border-color: transparent;
+    }
+    50%, 100% {
+        border-color: var(--color-white);
+    }
+}
+@media (max-width: 768px) {
+  .hello {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    }
+    .name {
+        font-size: 5rem;
+        margin-bottom: 3rem;
+    }
+    .sites, .free {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    .container-icons {
+        gap: 5rem;
+    }
+    .icon::before {
+        left: -5rem;          
+    }
+    .icon::after {
+        right: -5rem;
+    }
+}
+
+/* @media (min-width: 769px) {
+  .hello {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    }
+    .name {
+        font-size: 5rem;
+        margin-bottom: 3rem;
+    }
+    .sites, .free {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+    }
+} */

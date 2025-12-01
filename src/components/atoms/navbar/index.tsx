@@ -7,6 +7,7 @@ import { MenuItem, MENU_ITEMS } from "./props";
 
 export const NavBar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuClasses = `navbar-mobile-menu ${isMobileMenuOpen ? "is-open" : ""}`;
 
   const handleToggleMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);

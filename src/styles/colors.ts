@@ -6,7 +6,9 @@ const colors = `
     --color-baby-pink: #FFCDD4;
     --color-pink: #FD99A2;
     --color-dark-pink: #FF4375;
-    --color-black: #000
+    --color-black: #000;
+    --color-bg-gray: #252525;
+    --color-white: #fff;
   }
 `;
 

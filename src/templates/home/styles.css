@@ -1,0 +1,24 @@
+.container-home {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+}
+
+.grid div:nth-child(1) {
+    background-color: transparent;
+}
+
+.grid div:nth-child(2) {
+    background-color: yellow;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
