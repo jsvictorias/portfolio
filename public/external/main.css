@@ -6,16 +6,21 @@
   box-sizing: border-box;
 }
 
-:root {
-  --dark-color: #252525;
+:root[data-theme='light'] {
+  --bg-color: #eeeeee;
 }
+
+:root[data-theme='dark'] {
+  --bg-color: #252525;
+}
+
 
 body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
   min-height: 100vh;
-  background-color: var(--dark-color);
+  background-color: var(--bg-color);
   overflow: hidden;
   perspective: 1000px;
 }

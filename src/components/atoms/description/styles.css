@@ -30,7 +30,7 @@
 }
 .icon {
     font-size: 5rem;
-    color: var(--color-white);
+    color: var(--text-color);
     position: relative;
 }
 .icon::before {
@@ -41,7 +41,7 @@
     transform: translateY(-50%);
     width: 6rem;          
     height: 2px;
-    background: var(--color-white);
+    background: var(--text-color);
 }
 .icon::after {
     content: "";
@@ -51,7 +51,7 @@
     transform: translateY(-50%);
     width: 6rem;         
     height: 2px;
-    background: var(--color-white);
+    background: var(--text-color);
 }
 @keyframes blinkCursor {
     0%, 49% {

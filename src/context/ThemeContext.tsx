@@ -21,6 +21,16 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  useEffect(() => {
+    const iframe = document.querySelector("iframe");
+
+    iframe?.contentWindow?.postMessage(
+      { theme },
+      "*"
+    );
+  }, [theme]);
+
+
   const toggleTheme = () =>
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
 

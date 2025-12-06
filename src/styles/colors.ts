@@ -9,6 +9,7 @@ const colors = `
     --color-black: #000;
     --color-bg-gray: #252525;
     --color-white: #fff;
+    --color-shadow-gray: #ffffff55;
   }
 `;
 
