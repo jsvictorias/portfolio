@@ -1,6 +1,7 @@
 .container-navbar {
   height: 10vh;
   background-color: var(--color-baby-pink);
+  color: var(--color-black);
 }
 
 .navbar-content {

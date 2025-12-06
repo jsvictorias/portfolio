@@ -1,0 +1,94 @@
+.theme-switch {
+  position: relative;
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0;
+  background: linear-gradient(135deg, #ff4f86, #ff6fa3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 85 x 38 no desktop, mas responsivo com clamp */
+  width: clamp(60px, 8vw, 85px);
+  height: clamp(26px, 4.5vw, 38px);
+
+  /* para remover highlight feio em alguns browsers */
+  outline: none;
+}
+
+.theme-switch:focus-visible {
+  box-shadow: 0 0 0 2px #ffffff55, 0 0 0 4px #ff4f86;
+}
+
+/* trilho interno */
+.theme-switch__inner {
+  position: relative;
+  width: 90%;
+  height: 70%;
+  border-radius: 999px;
+  background: #ffb9cf;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.25rem;
+  overflow: hidden;
+}
+
+/* “bolinha” que se move */
+.theme-switch__thumb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45%;
+  height: 80%;
+  border-radius: 999px;
+  background: #ffffff;
+  transition: transform 0.22s ease-out;
+  z-index: 1;
+}
+
+/* posição para cada tema */
+.theme-switch--light .theme-switch__thumb {
+  transform: translate(8%, -50%);
+}
+
+.theme-switch--dark .theme-switch__thumb {
+  transform: translate(115%, -50%);
+}
+
+/* ícones */
+.theme-switch__icon {
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* tamanho responde ao tamanho do botão */
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+}
+
+/* reforça visual de qual está ativo */
+.theme-switch--light .theme-switch__icon--light {
+  color: #ff4f86;
+}
+
+.theme-switch--light .theme-switch__icon--dark {
+  color: #ffffffaa;
+}
+
+.theme-switch--dark .theme-switch__icon--dark {
+  color: #ff4f86;
+}
+
+.theme-switch--dark .theme-switch__icon--light {
+  color: #ffffffaa;
+}
+
+/* Para telas muito pequenas, aproxima um pouco os ícones */
+@media (max-width: 480px) {
+  .theme-switch__inner {
+    width: 92%;
+  }
+}

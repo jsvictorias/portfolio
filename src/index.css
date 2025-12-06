@@ -1,10 +1,32 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --bg-color: #252525;
+  --text-color: #ffffff;
 }
+
+:root[data-theme='light'] {
+  --bg-color: #eeeeee;
+  --text-color: #000000;
+}
+
+:root[data-theme='dark'] {
+  --bg-color: #252525;
+  --text-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
-    font-size: 62.5%;
-    scroll-behavior: smooth;
-    background-color: var(--color-bg-gray);
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  background-color: var(--bg-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.2s ease, color 0.2s ease;
 }

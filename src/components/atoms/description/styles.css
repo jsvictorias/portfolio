@@ -1,7 +1,7 @@
 .container-description{
     padding: 1rem;
     text-align: center;
-    color: var(--color-white);
+    color: var(--text-color);
     font-family: var(--font-title);
 }
 .hello {
@@ -30,7 +30,7 @@
 }
 .icon {
     font-size: 5rem;
-    color: white;
+    color: var(--color-white);
     position: relative;
 }
 .icon::before {
@@ -41,7 +41,7 @@
     transform: translateY(-50%);
     width: 6rem;          
     height: 2px;
-    background: white;
+    background: var(--color-white);
 }
 .icon::after {
     content: "";
@@ -51,7 +51,7 @@
     transform: translateY(-50%);
     width: 6rem;         
     height: 2px;
-    background: white;
+    background: var(--color-white);
 }
 @keyframes blinkCursor {
     0%, 49% {
@@ -84,18 +84,3 @@
         right: -5rem;
     }
 }
-
-/* @media (min-width: 769px) {
-  .hello {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    }
-    .name {
-        font-size: 5rem;
-        margin-bottom: 3rem;
-    }
-    .sites, .free {
-        font-size: 1.5rem;
-        margin-bottom: 3rem;
-    }
-} */
