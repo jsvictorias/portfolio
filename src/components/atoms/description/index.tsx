@@ -7,14 +7,19 @@ import { useLanguage } from '../../../context/LanguageContext';
 
 
 export const Description = () => {
-    const { getT } = useLanguage();
+    const { getT, currentLanguage } = useLanguage();
     const t = getT(descriptionMessages); 
     const helloText = t('helloText'); 
     const nameText = t('nameText');   
     const sitesText = t('sitesText'); 
     const freeText = t('freeText');
 
-    const typedHello = useTyping({ text: helloText, startDelay: 0 });
+    const cv_pt = 'https://drive.google.com/file/d/1-iAfQCB4p0JZH71RNm4vq0rcuvd61Cmx/view?usp=sharing';
+    const cv_en = 'https://drive.google.com/file/d/1OdTBnYBg3vxlYz8WtjJX0Rxsb17RK5hb/view?usp=sharing';
+
+    const resumeLink = currentLanguage === 'pt' ? cv_pt : cv_en;
+
+    const typedHello = useTyping({ text: helloText, startDelay: 800 });
     const typedName  = useTyping({ text: nameText, startDelay: 500 });
     const typedSites = useTyping({ text: sitesText, startDelay: 1000 });
     const typedFree  = useTyping({ text: freeText, startDelay: 1500 });
@@ -29,7 +34,7 @@ export const Description = () => {
             <ul className="container-icons">
                 <li className="icon"><a href="https://www.linkedin.com/in/julia-vic-santos/" target="_blank" rel="noopener noreferrer"><FiLinkedin /></a></li>
                 <li className="icon"><a href="https://github.com/jsvictorias" target="_blank" rel="noopener noreferrer"><FiGithub /></a></li>
-                <li className="icon"><a href="" target="_blank" rel="noopener noreferrer"><IoIosLink /></a></li>
+                <li className="icon"><a href={resumeLink} target="_blank" rel="noopener noreferrer"><IoIosLink /></a></li>
             </ul>
         </div>
     );
