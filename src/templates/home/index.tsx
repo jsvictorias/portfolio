@@ -2,6 +2,7 @@ import { NavBar } from "../../components/atoms/navbar";
 import { Description } from "../../components/atoms/description";
 import './styles.css';
 import ThemeSwitch from "../../components/atoms/ThemeSwitch";
+import LanguageSwitch from "../../components/atoms/LanguageSwitch";
 
 export const Home = () => {
   return (
@@ -10,7 +11,12 @@ export const Home = () => {
 
       <div className="container-home">
         <div className="switchs">
-            <ThemeSwitch />
+            <div className="theme">
+              <ThemeSwitch />
+            </div>
+            <div className="language">
+              <LanguageSwitch />
+            </div>
         </div>
         <div className="grid">
           
