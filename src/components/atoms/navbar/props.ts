@@ -1,11 +1,6 @@
-export interface MenuItem {
-  id: string;     
-  label: string;   
-};
+import { NavbarKey } from "./texts";
 
-export const MENU_ITEMS: MenuItem[] = [
-  { id: "AboutMe", label: "Sobre mim" },
-  { id: "Education", label: "Formação" },
-  { id: "Projects", label: "Projetos" },
-  { id: "Curriculum", label: "Currículo" },
-];
+export interface MenuItem {
+  id: NavbarKey; 
+  label: string; 
+}

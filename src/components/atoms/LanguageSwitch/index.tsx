@@ -1,9 +1,11 @@
 import React from 'react';
 import './style.css';
-import { useLanguageSwitch } from "./helpers";
+import { useLanguage } from '../../../context/LanguageContext';
 
 const LanguageSwitch: React.FC = () => {
-  const { language, toggleLanguage, switchClass } = useLanguageSwitch();
+  const { currentLanguage: language, toggleLanguage } = useLanguage();
+
+  const switchClass = language === 'pt' ? 'language-switch--light' : 'language-switch--dark';
 
   return (
     <button

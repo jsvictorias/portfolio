@@ -1,8 +1,7 @@
+import { useLanguage } from "../../../context/LanguageContext";
+import { navbarMessages } from "./texts"; 
+import { MenuItem } from "./props";
 
-/**
- * Faz navegação por hash e scroll suave até a section.
- * Espera que exista um elemento com id="AboutMe", "Education", etc.
- */
 export const scrollToSection = (sectionId: string): void => {
   if (typeof window === "undefined") return;
 
@@ -12,7 +11,6 @@ export const scrollToSection = (sectionId: string): void => {
 
   const element = document.getElementById(normalizedId);
 
-  // Atualiza o hash da URL (navegação estilo react)
   const hash = `#${normalizedId}`;
   if (window.location.hash !== hash) {
     window.history.pushState(null, "", hash);
@@ -24,4 +22,22 @@ export const scrollToSection = (sectionId: string): void => {
       block: "start",
     });
   }
+};
+
+/**
+ * Retorna os itens de menu já traduzidos
+ * de acordo com o idioma atual do contexto.
+ */
+export const useMenuItems = (): MenuItem[] => {
+  const { getT } = useLanguage();
+  const t = getT(navbarMessages); // t<'aboutMe' | 'education' | ...>
+
+  const items: MenuItem[] = [
+    { id: "aboutMe",    label: t("aboutMe") },
+    { id: "education",  label: t("education") },
+    { id: "projects",   label: t("projects") },
+    { id: "curriculum", label: t("curriculum") },
+  ];
+
+  return items;
 };

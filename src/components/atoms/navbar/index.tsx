@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { TiThMenu } from "react-icons/ti";
 import { IoClose } from "react-icons/io5";
 import "./styles.css";
-import { scrollToSection } from "./helpers";
-import { MenuItem, MENU_ITEMS } from "./props";
+import { scrollToSection, useMenuItems } from "./helpers";
 
 export const NavBar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const mobileMenuClasses = `navbar-mobile-menu ${isMobileMenuOpen ? "is-open" : ""}`;
+  const mobileMenuClasses = `navbar-mobile-menu ${
+    isMobileMenuOpen ? "is-open" : ""
+  }`;
+
+  const menuItems = useMenuItems();
 
   const handleToggleMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -33,11 +36,11 @@ export const NavBar: React.FC = () => {
     <header className="container-navbar">
       <nav className="navbar-content">
         <div className="navbar-logo">
-            <img src="/navbar.png" alt="Flores"/>
+          <img src="/navbar.png" alt="Flores" />
         </div>
 
         <ul className="navbar-links">
-          {MENU_ITEMS.map((item) => (
+          {menuItems.map((item) => (
             <li
               key={item.id}
               className="navbar-link"
@@ -58,7 +61,7 @@ export const NavBar: React.FC = () => {
         </button>
 
         {isMobileMenuOpen && (
-          <div className="navbar-mobile-menu">
+          <div className={mobileMenuClasses}>
             <button
               type="button"
               className="navbar-mobile-close"
@@ -69,7 +72,7 @@ export const NavBar: React.FC = () => {
             </button>
 
             <ul className="navbar-mobile-links">
-              {MENU_ITEMS.map((item) => (
+              {menuItems.map((item) => (
                 <li
                   key={item.id}
                   className="navbar-mobile-link"

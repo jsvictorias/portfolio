@@ -2,17 +2,22 @@ import './styles.css'
 import { FiLinkedin, FiGithub } from "react-icons/fi";
 import { IoIosLink } from "react-icons/io";
 import { useTyping } from "./helpers";
+import { descriptionMessages } from './texts';
+import { useLanguage } from '../../../context/LanguageContext';
+
 
 export const Description = () => {
-    const helloText = "Olá Visitante...";
-    const nameText = "Júlia Victoria Santos";
-    const sitesText = "Desenvolvedora de Sites";
-    const freeText = "Freelancer";
+    const { getT } = useLanguage();
+    const t = getT(descriptionMessages); 
+    const helloText = t('helloText'); 
+    const nameText = t('nameText');   
+    const sitesText = t('sitesText'); 
+    const freeText = t('freeText');
 
     const typedHello = useTyping({ text: helloText, startDelay: 0 });
-    const typedName  = useTyping({ text: nameText, startDelay: 500 });
+    const typedName  = useTyping({ text: nameText, startDelay: 500 });
     const typedSites = useTyping({ text: sitesText, startDelay: 1000 });
-    const typedFree  = useTyping({ text: freeText, startDelay: 1500 });
+    const typedFree  = useTyping({ text: freeText, startDelay: 1500 });
 
     return(
         <div className='container-description'>
@@ -27,5 +32,5 @@ export const Description = () => {
                 <li className="icon"><a href="" target="_blank" rel="noopener noreferrer"><IoIosLink /></a></li>
             </ul>
         </div>
-    )
-}
+    );
+};
