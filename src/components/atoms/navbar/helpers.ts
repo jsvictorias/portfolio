@@ -30,7 +30,7 @@ export const scrollToSection = (sectionId: string): void => {
  */
 export const useMenuItems = (): MenuItem[] => {
   const { getT } = useLanguage();
-  const t = getT(navbarMessages); // t<'aboutMe' | 'education' | ...>
+  const t = getT(navbarMessages);
 
   const items: MenuItem[] = [
     { id: "aboutMe",    label: t("aboutMe") },
