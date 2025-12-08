@@ -1,11 +1,15 @@
 .container-navbar {
+  position: fixed;        /* fixa no topo */
+  top: 0;
+  left: 0;
+  right: 0;
   height: 10vh;
   background-color: var(--color-baby-pink);
   color: var(--color-black);
+  z-index: 1000;
 }
-
 .navbar-content {
-  max-width: 1500px;
+  max-width: 150rem;
   height: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -14,6 +18,25 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+}
+.navbar-scrollbar {
+  width: 100%;
+  height: 4px;
+  background: transparent;
+}
+.navbar-scrollbar-fill[style*="width: 0%"] {
+  opacity: 0;
+}
+
+.navbar-scrollbar-fill[style*="width: 0."] {
+  opacity: 1;
+}
+
+.navbar-scrollbar-fill {
+  height: 100%;
+  width: 0;
+  background-color: var(--color-dark-pink);
+  transition: width 0.1s linear;
 }
 .navbar-logo {
   image-rendering: auto; 
@@ -110,6 +133,9 @@
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 2rem;
+}
+.main-content {
+  padding-top: 10vh;
 }
 
 @media (max-width: 768px) {

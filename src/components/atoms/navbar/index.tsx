@@ -6,6 +6,8 @@ import { scrollToSection, useMenuItems } from "./helpers";
 
 export const NavBar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0); // 👈 NOVO
+
   const mobileMenuClasses = `navbar-mobile-menu ${
     isMobileMenuOpen ? "is-open" : ""
   }`;
@@ -31,6 +33,22 @@ export const NavBar: React.FC = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header className="container-navbar">
@@ -85,6 +103,13 @@ export const NavBar: React.FC = () => {
           </div>
         )}
       </nav>
+
+      <div className="navbar-scrollbar">
+        <div
+          className="navbar-scrollbar-fill"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
     </header>
   );
 };

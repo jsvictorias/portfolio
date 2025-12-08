@@ -1,4 +1,5 @@
 .container-about-me{
+    margin-top: 10rem;
     height: 100vh;
     background-color: var(--bg-color);
     color: var(--text-color);
