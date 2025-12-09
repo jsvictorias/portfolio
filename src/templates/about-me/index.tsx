@@ -4,7 +4,6 @@ import { useLanguage } from '../../context/LanguageContext';
 import Lottie from 'lottie-react';
 import butterflyAnimation from '../../animation/butterfly.json';
 
-// importa os ícones da pasta ./constants.tsx
 import {
   JavaScript,
   TypeScript,
@@ -17,7 +16,6 @@ import {
   SQL,
   Pandas,
   NumPy,
-  Matplotlib,
   CSS as CssIcon,
   StyledComponents,
   PHP,
@@ -37,7 +35,6 @@ const techIcons = [
   { id: 'sql', Component: SQL },
   { id: 'pandas', Component: Pandas },
   { id: 'numpy', Component: NumPy },
-  { id: 'matplotlib', Component: Matplotlib },
   { id: 'css', Component: CssIcon },
   { id: 'styled-components', Component: StyledComponents },
   { id: 'php', Component: PHP },
@@ -51,12 +48,12 @@ export const AboutMe = () => {
   const about = t('about'); 
   const description = t('description');
 
-  // duplica a lista para o efeito de loop do carrossel
   const rowOne = [...techIcons, ...techIcons];
   const rowTwo = [...techIcons].reverse().concat([...techIcons].reverse());
 
   return (
     <section id="aboutMe" className="container-about-me">
+      {/* TÍTULO */}
       <div className="title-wrapper">
         <div className="title">
           <div className="title-content">
@@ -70,42 +67,40 @@ export const AboutMe = () => {
             </h1>
             <span className="underline" />
           </div>
+          {/* Adicione sua animação Lottie aqui */}
           <div className="butterfly-animation">
-            <Lottie
-              animationData={butterflyAnimation}
-              loop={true}
-              autoplay={true}
-            />
+            <Lottie animationData={butterflyAnimation} loop autoplay />
           </div>
         </div>
       </div>
 
+      {/* DESCRIÇÃO CENTRALIZADA */}
       <div className="about">
         <h3 className="description">{description}</h3>
+      </div>
 
-        {/* CARROSSEL DE TECNOLOGIAS */}
-        <div className="tech-carousel-wrapper">
-          <div className="tech-row tech-row--one">
-            <div className="tech-track">
-              {rowOne.map(({ id, Component }, index) => (
-                <div className="tech-card" key={`${id}-row1-${index}`}>
-                  <Component />
-                </div>
-              ))}
-            </div>
+      {/* CARROSSEL NO FINAL */}
+      <div className="tech-carousel-wrapper">
+        <div className="tech-row tech-row--one">
+          <div className="tech-track">
+            {rowOne.map(({ id, Component }, index) => (
+              <div className="tech-card" key={`${id}-row1-${index}`}>
+                <Component />
+              </div>
+            ))}
           </div>
+        </div>
 
-          <div className="tech-row tech-row--two">
-            <div className="tech-track">
-              {rowTwo.map(({ id, Component }, index) => (
-                <div className="tech-card" key={`${id}-row2-${index}`}>
-                  <Component />
-                </div>
-              ))}
-            </div>
+        <div className="tech-row tech-row--two">
+          <div className="tech-track">
+            {rowTwo.map(({ id, Component }, index) => (
+              <div className="tech-card" key={`${id}-row2-${index}`}>
+                <Component />
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
