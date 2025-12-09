@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { TiThMenu } from "react-icons/ti";
-import { IoClose } from "react-icons/io5";
 import "./styles.css";
 import { scrollToSection, useMenuItems } from "./helpers";
+import { Menu, CloseMenu } from "./constants";
 
 export const NavBar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0); // 👈 NOVO
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const mobileMenuClasses = `navbar-mobile-menu ${
     isMobileMenuOpen ? "is-open" : ""
@@ -75,7 +74,7 @@ export const NavBar: React.FC = () => {
           onClick={handleToggleMenu}
           aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
         >
-          {isMobileMenuOpen ? <IoClose /> : <TiThMenu />}
+          {isMobileMenuOpen ? <CloseMenu /> : <Menu />}
         </button>
 
         {isMobileMenuOpen && (
@@ -86,7 +85,7 @@ export const NavBar: React.FC = () => {
               onClick={handleToggleMenu}
               aria-label="Fechar menu"
             >
-              <IoClose />
+              <CloseMenu />
             </button>
 
             <ul className="navbar-mobile-links">

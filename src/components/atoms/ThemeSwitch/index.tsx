@@ -1,7 +1,7 @@
 import React from 'react';
-import { MdLightMode, MdOutlineDarkMode } from 'react-icons/md';
 import { useTheme } from '../../../context/ThemeContext';
 import { getThemeLabel, isDarkTheme } from './helpers';
+import { LightSun, DarkMoon } from './constants';
 import './style.css';
 
 const ThemeSwitch: React.FC = () => {
@@ -19,10 +19,10 @@ const ThemeSwitch: React.FC = () => {
       <div className="theme-switch__inner">
         <div className="theme-switch__thumb" />
         <span className="theme-switch__icon theme-switch__icon--dark">
-          <MdOutlineDarkMode />
+          <DarkMoon />
         </span>
         <span className="theme-switch__icon theme-switch__icon--light">
-          <MdLightMode />
+          <LightSun />
         </span>
       </div>
     </button>
