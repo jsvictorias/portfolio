@@ -10,6 +10,12 @@ const colors = `
     --color-bg-gray: #252525;
     --color-white: #fff;
     --color-shadow-gray: #ffffff55;
+    '--color-neon-pink': '#FF4375',
+    '--color-neon-pink-hover': '#FF5A88',
+    '--color-star-1': '#B5CAF1',
+    '--color-star-2': '#56B0ED',
+    '--color-star-3': '#FF4375',
+    '--color-star-4': '#FFCDD4',
   }
 `;
 

@@ -3,14 +3,14 @@ export const navbarMessages = {
     aboutMe: "Sobre Mim",
     education: "Formação",
     projects: "Projetos",
-    curriculum: "Currículo",
+    curriculum: "Artigos",
   },
   en: {
     aboutMe: "About Me",
     education: "Education",
     projects: "Projects",
-    curriculum: "Curriculum",
+    curriculum: "Articles",
   },
 } as const;
 
-export type NavbarKey = keyof typeof navbarMessages["pt"]; 
+export type NavbarKey = keyof typeof navbarMessages["pt"];

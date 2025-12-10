@@ -1,3 +1,9 @@
+.language-container{
+  position: fixed;
+  top: 15rem;
+  right: 5rem;
+  z-index: 1000;
+}
 .language-switch {
   position: relative;
   border: none;

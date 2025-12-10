@@ -1,86 +1,145 @@
-.container-description{
-    padding: 1rem;
+.container-description {
+    padding: 2rem;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
     color: var(--text-color);
     font-family: var(--font-title);
 }
+
+
 .hello {
     font-size: 5rem;
     margin-bottom: 3rem;
 }
+
 .name {
     font-size: 8rem;
     margin-bottom: 3rem;
 }
-.sites, .free {
+
+.sites,
+.free {
     font-size: 3rem;
     margin-bottom: 3rem;
 }
+
 .container-icons {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10rem;
-    margin-top: 3rem;
+
+    gap: 3rem;
+    margin: 2.5rem auto 0;
     list-style: none;
+
+    width: 100%;
+    max-width: 420px;
+    padding: 0 1.5rem;
 }
-.container-icons li a {
-    all: unset;
-    cursor: pointer;
+.container-icons::before {
+    content: "";
+    position: absolute;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 2px;
+    background: var(--text-color);
+    top: 50%;
+    transform: translateY(-50%);
 }
+
 .icon {
-    font-size: 5rem;
-    color: var(--text-color);
     position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 0.4rem;
+    line-height: 0;
+    color: var(--text-color);
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    background: #111111;
 }
 .icon::before {
     content: "";
     position: absolute;
-    left: -6rem;          
+    left: -6rem;
     top: 50%;
     transform: translateY(-50%);
-    width: 6rem;          
+    width: 6rem;
     height: 2px;
     background: var(--text-color);
 }
+
 .icon::after {
     content: "";
     position: absolute;
-    right: -6rem;        
+    right: -6rem;
     top: 50%;
     transform: translateY(-50%);
-    width: 6rem;         
+    width: 6rem;
     height: 2px;
     background: var(--text-color);
 }
+
+.icon svg {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    z-index: 1;
+    color: var(--color-white); 
+}
+
 @keyframes blinkCursor {
-    0%, 49% {
+
+    0%,
+    49% {
         border-color: transparent;
     }
-    50%, 100% {
+
+    50%,
+    100% {
         border-color: var(--color-white);
     }
 }
+
 @media (max-width: 768px) {
-  .hello {
-    font-size: 3rem;
-    margin-bottom: 3rem;
+    .container-description {
+        min-height: 100vh;
+        padding: 1.5rem;
     }
+
+    .hello {
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+    }
+
     .name {
-        font-size: 5rem;
-        margin-bottom: 3rem;
+        font-size: 3.6rem;
+        margin-bottom: 2rem;
     }
-    .sites, .free {
-        font-size: 1.5rem;
-        margin-bottom: 3rem;
+
+    .sites,
+    .free {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
     }
+
     .container-icons {
-        gap: 5rem;
+        gap: 2rem;
+        max-width: 320px;
     }
-    .icon::before {
-        left: -5rem;          
-    }
-    .icon::after {
-        right: -5rem;
+
+    .icon {
+        font-size: 2.6rem;
+        padding: 0 0.3rem;
     }
 }

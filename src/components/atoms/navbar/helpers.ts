@@ -1,6 +1,10 @@
 import { useLanguage } from "../../../context/LanguageContext";
-import { navbarMessages } from "./texts"; 
-import { MenuItem } from "./props";
+import { navbarMessages, NavbarKey } from "./texts";
+
+export interface MenuItem {
+  id: string;
+  label: string;
+}
 
 export const scrollToSection = (sectionId: string): void => {
   if (typeof window === "undefined") return;
@@ -11,32 +15,23 @@ export const scrollToSection = (sectionId: string): void => {
 
   const element = document.getElementById(normalizedId);
 
-  const hash = `#${normalizedId}`;
-  if (window.location.hash !== hash) {
-    window.history.pushState(null, "", hash);
-  }
-
   if (element) {
     element.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
+    window.history.pushState(null, "", `#${normalizedId}`);
   }
 };
-
-/**
- * Retorna os itens de menu já traduzidos
- * de acordo com o idioma atual do contexto.
- */
 export const useMenuItems = (): MenuItem[] => {
   const { getT } = useLanguage();
   const t = getT(navbarMessages);
 
   const items: MenuItem[] = [
-    { id: "aboutMe",    label: t("aboutMe") },
+    { id: "about",      label: t("aboutMe") },
     { id: "education",  label: t("education") },
     { id: "projects",   label: t("projects") },
-    { id: "curriculum", label: t("curriculum") },
+    { id: "contact",    label: t("curriculum") },
   ];
 
   return items;

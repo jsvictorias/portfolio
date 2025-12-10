@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #252525;
+  --bg-color: #111111;
   --text-color: #ffffff;
 }
 
@@ -9,7 +9,7 @@
 }
 
 :root[data-theme='dark'] {
-  --bg-color: #252525;
+  --bg-color: #111111;
   --text-color: #ffffff;
 }
 

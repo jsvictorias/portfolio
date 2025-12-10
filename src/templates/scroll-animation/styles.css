@@ -1,0 +1,17 @@
+.scroll-animation {
+    width: 100%;
+    height: 100vh;            /* ocupa a tela toda */
+    display: flex;
+    justify-content: center;  /* centraliza horizontalmente */
+    align-items: center;      /* centraliza verticalmente */
+    overflow: hidden;         /* evita que a animação corte fora */
+    position: relative;
+}
+
+/* Lottie responsivo */
+.lottie-responsive {
+    width: 100%;
+    height: 100%;
+    max-width: 800px;        /* limite opcional para não ficar gigante em desktops */
+    object-fit: contain;     /* mantém proporção da animação */
+}

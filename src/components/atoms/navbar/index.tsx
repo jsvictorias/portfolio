@@ -7,10 +7,6 @@ export const NavBar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const mobileMenuClasses = `navbar-mobile-menu ${
-    isMobileMenuOpen ? "is-open" : ""
-  }`;
-
   const menuItems = useMenuItems();
 
   const handleToggleMenu = () => {
@@ -24,13 +20,20 @@ export const NavBar: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768 && isMobileMenuOpen) {
+      if (window.innerWidth >= 769 && isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
       }
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
@@ -52,8 +55,8 @@ export const NavBar: React.FC = () => {
   return (
     <header className="container-navbar">
       <nav className="navbar-content">
-        <div className="navbar-logo">
-          <img src="/navbar.png" alt="Flores" />
+        <div className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ cursor: 'pointer' }}>
+           <span>JSVICTORIAS</span>
         </div>
 
         <ul className="navbar-links">
@@ -73,34 +76,24 @@ export const NavBar: React.FC = () => {
           className="navbar-menu-icon"
           onClick={handleToggleMenu}
           aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <CloseMenu /> : <Menu />}
         </button>
 
-        {isMobileMenuOpen && (
-          <div className={mobileMenuClasses}>
-            <button
-              type="button"
-              className="navbar-mobile-close"
-              onClick={handleToggleMenu}
-              aria-label="Fechar menu"
-            >
-              <CloseMenu />
-            </button>
-
-            <ul className="navbar-mobile-links">
-              {menuItems.map((item) => (
-                <li
-                  key={item.id}
-                  className="navbar-mobile-link"
-                  onClick={() => handleItemClick(item.id)}
-                >
-                  {item.label}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className={`navbar-mobile-menu ${isMobileMenuOpen ? "is-open" : ""}`}>
+          <ul className="navbar-mobile-links">
+            {menuItems.map((item) => (
+              <li
+                key={item.id}
+                className="navbar-mobile-link"
+                onClick={() => handleItemClick(item.id)}
+              >
+                {item.label}
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
 
       <div className="navbar-scrollbar">
