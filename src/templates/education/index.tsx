@@ -3,7 +3,6 @@ import { useLanguage } from '../../context/LanguageContext';
 import { educationMessages } from './texts';
 import './styles.css';
 
-// Extend CSSProperties to accept custom CSS variables for the animation
 interface StarStyle extends React.CSSProperties {
     '--duration'?: string;
     '--x-dest'?: string;
@@ -20,13 +19,12 @@ const STAR_COLORS = ['#B5CAF1', '#56B0ED', '#FF4375', '#FFCDD4', '#FFFFFF'];
 export const Education: React.FC = () => {
     const { getT } = useLanguage();
     const t = getT(educationMessages);
-
-    // Accordion data mapped from translations
+    const formation = t('formation');
     const formations = [
-        { id: 'faculdade', title: t('faculdade'), desc: t('faculdade_desc') },
-        { id: 'frontend', title: t('frontend'), desc: t('frontend_desc') },
-        { id: 'backend', title: t('backend'), desc: t('backend_desc') },
-        { id: 'design', title: t('design'), desc: t('design_desc') },
+        { id: 'faculdade', title: t('faculdade'), desc: t('faculdade') },
+        { id: 'frontend', title: t('frontend'), desc: t('frontend') },
+        { id: 'quantica', title: t('quantica'), desc: t('quantica') },
+        { id: 'Machine Learning', title: t('machine'), desc: t('machine') },
     ];
 
     const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -38,8 +36,7 @@ export const Education: React.FC = () => {
         
         for (let i = 0; i < starCount; i++) {
             const color = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)];
-            const size = Math.random() * 3 + 1; // Random size ~1px to 4px
-            // Using rem for properties to match design system.
+            const size = Math.random() * 3 + 1; 
             const sizeRem = (size / 16).toFixed(4);
 
             const style: StarStyle = {
@@ -48,11 +45,10 @@ export const Education: React.FC = () => {
                 width: `${0.6}rem`,
                 height: `${0.6}rem`,
                 backgroundColor: color,
-                boxShadow: `0 0 ${parseFloat(sizeRem) * 2}rem ${color}`, // Individual glow
-                
-                // Custom properties for drift animation
-                '--duration': `${Math.random() * 5 + 3}s`, // 3s to 8s
-                '--x-dest': `${Math.random() * 100 - 50}px`, // Drift -50px to 50px
+                boxShadow: `0 0 ${parseFloat(sizeRem) * 2}rem ${color}`, 
+ 
+                '--duration': `${Math.random() * 5 + 3}s`, 
+                '--x-dest': `${Math.random() * 100 - 50}px`, 
                 '--y-dest': `${Math.random() * 100 - 50}px`,
                 animationDelay: `${Math.random() * 5}s`
             };
@@ -80,7 +76,7 @@ export const Education: React.FC = () => {
             </div>
 
             <div className="title-wrapper">
-                <h1 className='education-title'>{t('formation')}</h1>
+                <h1 className='education-title'>{formation}</h1>
             </div>
 
             <div className="accordion-list">

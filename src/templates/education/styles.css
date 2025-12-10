@@ -1,7 +1,6 @@
 :root {
     --neon-pink: #FF4375;
     --neon-pink-hover: #FF5A88;
-    --font-main: 'Montserrat', sans-serif;
     --neon-glow: 0 0 0.75rem var(--neon-pink), 0 0 1.5rem rgba(255, 67, 117, 0.5);
 }
 
@@ -15,11 +14,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3.75rem 1.25rem; 
+    padding: 2.75rem 1.25rem; 
     gap: 15rem;
 }
-
-/* Stars Wrapper */
 .stars-wrapper {
     position: absolute;
     top: 0;
@@ -58,7 +55,6 @@
     }
 }
 
-/* Title Wrapper */
 .title-wrapper {
     text-align: center;
     margin-top: 2rem;
@@ -69,7 +65,6 @@
 
 .education-title {
     font-family: var(--font-main);
-    font-size: 6rem;
     font-weight: 800;
     text-transform: uppercase;
     color: var(--text-color); 
@@ -77,9 +72,8 @@
     display: inline-block; 
     letter-spacing: 0.25rem;
     transition: color 0.3s ease;
+    font-size: 5rem;
 }
-
-/* Neon Underline */
 .education-title::after {
     content: '';
     display: block;
@@ -90,8 +84,6 @@
     margin: 0.625rem auto 0; 
     border-radius: 0.125rem;
 }
-
-/* Accordion Container */
 .accordion-list {
     width: 100%;
     max-width: 50rem; 
@@ -100,16 +92,12 @@
     flex-direction: column;
     gap: 1rem;
 }
-
-/* Accordion Item */
 .accordion-item {
     width: 100%;
     border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
     background-color: transparent;
     transition: border-color 0.3s ease;
 }
-
-/* Make border darker in light mode for visibility */
 :root[data-theme='light'] .accordion-item {
     border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
 }
@@ -125,17 +113,15 @@
     text-align: left;
     outline: none;
 }
-
-/* Icon */
 .accordion-icon {
-    width: 2.5rem; /* 40px */
-    height: 2.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: 50%;
     background-color: var(--neon-pink);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 1.125rem;
+    margin-right: 2.125rem;
     flex-shrink: 0;
     transition: transform 0.3s ease;
     box-shadow: 0 0.25rem 0.625rem rgba(255, 67, 117, 0.3);
@@ -146,80 +132,72 @@
 }
 
 .icon-svg {
-    width: 2rem; 
-    height: 2rem;
-    fill: #FFFFFF; /* Icon inside pink circle always white */
+    width: 4rem; 
+    height: 4rem;
+    fill: #FFFFFF;
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .accordion-item.active .icon-svg {
     transform: rotate(90deg);
 }
-
-/* Accordion Title Text */
 .accordion-title-text {
     font-family: var(--font-main);
-    font-size: 1.2rem;
+    font-size: 2.2rem;
     font-weight: 600;
     color: var(--neon-pink);
     text-transform: uppercase;
     flex-grow: 1;
 }
 
-/* Accordion Content - Smooth Animation */
 .accordion-content {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    /* Smooth cubic-bezier transition */
     transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease-out;
 }
 
 .accordion-content.open {
-    max-height: 18.75rem; /* ~300px */
+    max-height: 18.75rem;
     opacity: 1;
-    /* Delay opacity slightly so content appears as it opens */
     transition-delay: 0s, 0.1s;
 }
 
 .accordion-description {
-    padding: 0 0 1.875rem 3.625rem; /* 0 0 30px 58px */
-    font-size: 1rem;
+    padding: 0 0 1.875rem 3.625rem; 
+    font-size: 2rem;
     line-height: 1.6;
-    /* Use global variable so it is legible in light mode */
-    color: var(--text-secondary); 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-white); 
     transition: color 0.3s ease;
 }
 
-/* Tablet (~768px) */
 @media (min-width: 48rem) {
     .accordion-list {
         gap: 1.5rem;
     }
 }
-/* Desktop (~1024px) */
-/* Desktop (~1024px) */
+
 @media (min-width: 64rem) {
     .education-title {
-        font-size: 4rem; /* se quiser, pode até aumentar aqui também */
+        font-size: 6rem;
     }
 
     .accordion-list {
-        max-width: 70rem;   /* aumenta a largura máxima (~1120px) */
-        width: 90vw;        /* opcional: ocupa 90% da largura da tela */
-        margin: 0 auto;     /* garante que fique centralizado */
+        max-width: 70rem;
+        width: 90vw;      
+        margin: 0 auto;     
     }
 }
 
-
-/* Mobile Adjustments (< 480px) */
 @media (max-width: 30rem) {
     .education-title {
-        font-size: 3rem;
+        font-size: 5rem;
     }
     .accordion-description {
         padding-left: 0;
         padding-top: 0.625rem;
+    }
+    .accordion-title-text {
+        font-size: 1.9rem;
     }
 }
