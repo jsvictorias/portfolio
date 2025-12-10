@@ -55,9 +55,6 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 
       <div className="image-wrapper">
         <img src={img} alt={`Preview do projeto ${title}`} className="project-img" />
-        <div className="description-overlay">
-          <span className="description-text">{description}</span>
-        </div>
       </div>
 
       <div className="content-wrapper">

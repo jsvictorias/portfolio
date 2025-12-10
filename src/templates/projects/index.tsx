@@ -7,22 +7,24 @@ import ProjectItem from '../../components/molecules/project-item';
 import { projects } from './projects';
 
 interface ProjectData {
-  id: number;
-  titulo: string;
-  techs: string[];
-  "link-github": string;
-  "link-site"?: string;
-  descrição: string;
-  type: string;
+    id: number;
+    titulo: string;
+    translationKey?: string;
+    techs: string[];
+    "link-github": string;
+    "link-site"?: string;
+    descrição: string;
+    type: string;
+    img: string;
 }
 const ArrowIcon = ({ rotated }: { rotated?: boolean }) => (
-  <svg 
-    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-    style={{ transform: rotated ? 'rotate(180deg)' : 'none' }}
-  >
-    <path d="M9 18l6-6-6-6" />
-  </svg>
+    <svg
+        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+        style={{ transform: rotated ? 'rotate(180deg)' : 'none' }}
+    >
+        <path d="M9 18l6-6-6-6" />
+    </svg>
 );
 
 export const Projects = () => {
@@ -32,7 +34,7 @@ export const Projects = () => {
 
     const [activeFilters, setActiveFilters] = useState<string[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
-    
+
     const ITEMS_PER_PAGE = 6;
 
     const allProjectsList = useMemo(() => {
@@ -42,7 +44,7 @@ export const Projects = () => {
         if (activeFilters.length === 0) {
             return allProjects;
         }
-        return allProjects.filter((project) => 
+        return allProjects.filter((project) =>
             activeFilters.includes(project.type)
         );
     }, [activeFilters]);
@@ -67,29 +69,39 @@ export const Projects = () => {
     return (
         <section id="projects" className="container-projects">
             <h1 className='title-projects'>{title}</h1>
-            
+
             <div className="filter-container">
-                <FilterCollapse onFilterChange={handleFilter}/>
+                <FilterCollapse onFilterChange={handleFilter} />
             </div>
-        
+
             <div className="projects-grid-wrapper">
                 <div className="projects-grid">
-                    {/* Renderização dos cards */}
-                    {currentProjects.map((proj, index) => (
-                        <div className="grid-cell" key={proj.id || index}>
-                            <ProjectItem 
-                                img="/img/mock_image.png" 
-                                title={proj.titulo} 
-                                techs={(proj.techs || []).join(' * ')} 
-                                
-                                linksite={proj['link-site']}
-                                linkgithub={proj['link-github']}
-                                description={proj['descrição']}
-                                
-                                id={proj.type as any}
-                            />
-                        </div>
-                    ))}
+                    {currentProjects.map((proj, index) => {
+                        // LÓGICA DE TRADUÇÃO AQUI:
+                        // 1. Tenta pegar a translationKey
+                        // 2. Se existir, usa a função t()
+                        // 3. Se não existir chave ou tradução, usa proj.titulo como fallback
+                        const translatedTitle = proj.translationKey
+                            ? t(proj.translationKey)
+                            : proj.titulo;
+
+                        return (
+                            <div className="grid-cell" key={proj.id || index}>
+                                <ProjectItem
+                                    img={proj['img']}
+
+                                    // Usa o título traduzido
+                                    title={translatedTitle}
+
+                                    techs={(proj.techs || []).join(' * ')}
+                                    linksite={proj['link-site']}
+                                    linkgithub={proj['link-github']}
+                                    description={proj['descrição']}
+                                    id={proj.type as any}
+                                />
+                            </div>
+                        );
+                    })}
                 </div>
 
                 {totalPages > 1 && (
@@ -97,17 +109,17 @@ export const Projects = () => {
                         <span className="page-indicator">
                             {currentPage} / {totalPages}
                         </span>
-                        
-                        <button 
-                            onClick={handlePrevPage} 
+
+                        <button
+                            onClick={handlePrevPage}
                             disabled={currentPage === 1}
                             className="nav-btn"
                         >
                             <ArrowIcon rotated />
                         </button>
-                        
-                        <button 
-                            onClick={handleNextPage} 
+
+                        <button
+                            onClick={handleNextPage}
                             disabled={currentPage === totalPages}
                             className="nav-btn"
                         >
