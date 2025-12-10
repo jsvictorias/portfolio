@@ -5,11 +5,17 @@ import { usePagination, useStars } from './helpers';
 import { Article } from './props';
 import './styles.css';
 
+import { useLanguage } from '../../context/LanguageContext';
+import { articleMessages } from './texts';
+
 export const Curriculum = () => {
+  const { getT } = useLanguage();
+  const t = getT(articleMessages);
+
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  const allArticles: Article[] = useMemo(() => {
-    return Object.values(articlesData).flat();
+  const allArticles = useMemo(() => {
+    return Object.values(articlesData).flat() as Article[];
   }, []);
   
   const { 
@@ -45,55 +51,66 @@ export const Curriculum = () => {
 
       <div className="content-wrapper">
         
-        {/* Header */}
         <div className="header-section">
           <div className="title-container">
             <h1 className="main-title">
-              Artigos
+              {t('title')}
             </h1>
             <div className="title-underline" />
           </div>
         </div>
 
         <div className="articles-grid">
-          {currentArticles.map((article) => (
-            <a 
-              href={article["link-github"]} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              key={article.id}
-              onMouseEnter={() => setHoveredCard(article.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-              className="article-card"
-              style={{ textDecoration: 'none' }}
-            >
-              <div className="card-hover-gradient" />
+          {currentArticles.map((article) => {
+            const translatedTitle = article.translationKey 
+                ? t(article.translationKey) 
+                : article.titulo;
 
-              <div className="card-icon-wrapper">
-                <div className="icon-box">
-                  <BookOpen />
-                </div>
-              </div>
+            const descKey = article.translationKey ? `${article.translationKey}_desc` : '';
+            const translatedDesc = (article.translationKey && t(descKey) !== descKey)
+                ? t(descKey) 
+                : article.descrição;
 
-              <h3 className="card-title">
-                {article.titulo}
-              </h3>
-              
-              <p className="card-excerpt">
-                {article.descrição}
-              </p>
+            return (
+                <a 
+                  href={article["link-github"]} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  key={article.id}
+                  onMouseEnter={() => setHoveredCard(article.id)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  className="article-card"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="card-hover-gradient" />
 
-              <div className="card-footer">
-                <div className="date-wrapper">
-                  <Calendar />
-                  <span>{article.date || "Recente"}</span>
-                </div>
-                <div className="flex items-center gap-1 text-pink-400 know-more">
-                    Saiba mais <CaretRight />
-                </div>
-              </div>
-            </a>
-          ))}
+                  <div className="card-icon-wrapper">
+                    <div className="icon-box">
+                      <BookOpen />
+                    </div>
+                  </div>
+
+                  <h3 className="card-title">
+                    {translatedTitle}
+                  </h3>
+                  
+                  <p className="card-excerpt">
+                    {translatedDesc}
+                  </p>
+
+                  <div className="card-footer">
+                    <div className="date-wrapper">
+                      <Calendar />
+                      <span>{article.date || "Recente"}</span>
+                    </div>
+                    
+                    <div className="flex items-center gap-1 text-pink-400 know-more">
+                        {t('knowMore')} <CaretRight />
+                    </div>
+                  </div>
+                </a>
+            );
+          })}
         </div>
 
         {totalPages > 1 && (

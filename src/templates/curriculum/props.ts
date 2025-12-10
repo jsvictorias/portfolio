@@ -6,6 +6,7 @@ export interface Article {
   "link-github": string;
   type: string;
   date?: string;
+  translationKey?: string;
 }
 
 export interface Star {
