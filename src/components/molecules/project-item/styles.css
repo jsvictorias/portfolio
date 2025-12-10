@@ -1,0 +1,135 @@
+.project-item-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  background-color: #1a1a1a;
+  padding: 2rem;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Área da Imagem */
+.image-wrapper {
+  position: relative;
+  width: 50%; /* Largura agradável */
+  min-width: 400px; /* Garante que não fique muito pequena */
+  height: auto;
+  aspect-ratio: 16 / 9; /* Proporção padrão retangular */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay de Descrição (Hover) */
+.description-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo claro translúcido */
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Invisível por padrão */
+  transition: opacity 0.3s ease;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.description-text {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Efeito de Hover na Imagem */
+.image-wrapper:hover .description-overlay {
+  opacity: 1;
+}
+
+.image-wrapper:hover .project-img {
+  transform: scale(1.05);
+}
+
+/* Coluna de Conteúdo (Texto) */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem; /* Gap solicitado entre os textos */
+  width: 50%;
+}
+
+/* Título */
+.project-title {
+  font-size: 4rem; /* Solicitado */
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* Sublinhado customizado para parecer com a imagem */
+.project-title::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+/* Tecnologias */
+.project-techs {
+  font-size: 2.5rem; /* Solicitado */
+  color: #ff4081; /* Cor rosa/avermelhada da imagem */
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Botão/Link */
+.project-link {
+  font-size: 3.5rem; /* Solicitado */
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: opacity 0.2s;
+}
+
+.project-link:hover {
+  opacity: 0.8;
+}
+
+/* Setinha do link */
+.arrow {
+  font-size: 3rem;
+  transform: translateY(2px);
+}
+
+/* Responsividade Básica */
+@media (max-width: 1024px) {
+  .project-item-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .image-wrapper, .content-wrapper {
+    width: 100%;
+  }
+}
