@@ -36,7 +36,7 @@
 
 html {
   font-size: 62.5%;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   background-color: var(--bg-color);
 }
 
@@ -44,5 +44,10 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background 0.2s ease, color 0.2s ease;
-  scroll-behavior: smooth;
+}
+.container-about-me,
+.container-curriculum,
+.container-education,
+.container-projects {
+  scroll-margin-top: 20vh;
 }
