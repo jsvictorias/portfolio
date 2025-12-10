@@ -20,23 +20,40 @@ export const Education: React.FC = () => {
     const { getT } = useLanguage();
     const t = getT(educationMessages);
     const formation = t('formation');
+
     const formations = [
-        { id: 'faculdade', title: t('faculdade'), desc: t('faculdade') },
-        { id: 'frontend', title: t('frontend'), desc: t('frontend') },
-        { id: 'quantica', title: t('quantica'), desc: t('quantica') },
-        { id: 'Machine Learning', title: t('machine'), desc: t('machine') },
+        {
+            id: 'faculdade',
+            title: t('faculdade'),
+            desc: t('faculdade_desc'),
+        },
+        {
+            id: 'frontend',
+            title: t('frontend'),
+            desc: t('frontend_desc'),
+        },
+        {
+            id: 'quantica',
+            title: t('quantica'),
+            desc: t('quantica_desc'),
+        },
+        {
+            id: 'machine',
+            title: t('machine'),
+            desc: t('machine_desc'),
+        },
     ];
 
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const [stars, setStars] = useState<Star[]>([]);
 
     useEffect(() => {
-        const starCount = 60; // Increased density
+        const starCount = 60;
         const newStars: Star[] = [];
         
         for (let i = 0; i < starCount; i++) {
             const color = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)];
-            const size = Math.random() * 3 + 1; 
+            const size = Math.random() * 3 + 1;
             const sizeRem = (size / 16).toFixed(4);
 
             const style: StarStyle = {
@@ -45,12 +62,11 @@ export const Education: React.FC = () => {
                 width: `${0.6}rem`,
                 height: `${0.6}rem`,
                 backgroundColor: color,
-                boxShadow: `0 0 ${parseFloat(sizeRem) * 2}rem ${color}`, 
- 
-                '--duration': `${Math.random() * 5 + 3}s`, 
-                '--x-dest': `${Math.random() * 100 - 50}px`, 
+                boxShadow: `0 0 ${parseFloat(sizeRem) * 2}rem ${color}`,
+                '--duration': `${Math.random() * 5 + 3}s`,
+                '--x-dest': `${Math.random() * 100 - 50}px`,
                 '--y-dest': `${Math.random() * 100 - 50}px`,
-                animationDelay: `${Math.random() * 5}s`
+                animationDelay: `${Math.random() * 5}s`,
             };
 
             newStars.push({ id: i, style });
@@ -76,7 +92,7 @@ export const Education: React.FC = () => {
             </div>
 
             <div className="title-wrapper">
-                <h1 className='education-title'>{formation}</h1>
+                <h1 className="education-title">{formation}</h1>
             </div>
 
             <div className="accordion-list">
@@ -91,7 +107,7 @@ export const Education: React.FC = () => {
                             >
                                 <div className="accordion-icon">
                                     <svg className="icon-svg" viewBox="0 0 24 24">
-                                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
                                     </svg>
                                 </div>
                                 <span className="accordion-title-text">{item.title}</span>
