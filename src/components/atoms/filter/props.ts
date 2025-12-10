@@ -11,9 +11,10 @@ export const useCategories = (): Category[] => {
     const t = getT(filterMessages);
 
     return [
-        { id: '1', label: t("design") },
-        { id: '2', label: t("frontend") },
-        { id: '3', label: t("quantica") },
-        { id: '4', label: t("machine") },
+        { id: 'design', label: t("design") },
+        { id: 'frontend', label: t("frontend") },
+        { id: 'mobile', label: t("mobile") },
+        { id: 'quantica', label: t("quantica") },
+        { id: 'machine', label: t("machine") },
     ];
 };

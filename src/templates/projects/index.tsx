@@ -4,8 +4,17 @@ import FilterCollapse from '../../components/atoms/filter';
 import { useLanguage } from '../../context/LanguageContext';
 import { projectMessages } from './texts';
 import ProjectItem from '../../components/molecules/project-item';
-import { projects } from './projects'; // Importando seu JSON
+import { projects } from './projects';
 
+interface ProjectData {
+  id: number;
+  titulo: string;
+  techs: string[];
+  "link-github": string;
+  "link-site"?: string;
+  descrição: string;
+  type: string;
+}
 const ArrowIcon = ({ rotated }: { rotated?: boolean }) => (
   <svg 
     width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
@@ -27,21 +36,15 @@ export const Projects = () => {
     const ITEMS_PER_PAGE = 6;
 
     const allProjectsList = useMemo(() => {
-        let list: any[] = [];
-        
-        const keysToSearch = activeFilters.length > 0 
-            ? activeFilters 
-            : Object.keys(projects);
+        // @ts-ignore - Ignora verificação estrita na conversão do objeto JSON
+        const allProjects: ProjectData[] = Object.values(projects).flat();
 
-        keysToSearch.forEach(key => {
-            // @ts-ignore - Acessando chaves dinâmicas do JSON
-            if (projects[key]) {
-                // @ts-ignore
-                list = [...list, ...projects[key]];
-            }
-        });
-
-        return list;
+        if (activeFilters.length === 0) {
+            return allProjects;
+        }
+        return allProjects.filter((project) => 
+            activeFilters.includes(project.type)
+        );
     }, [activeFilters]);
 
     const totalPages = Math.ceil(allProjectsList.length / ITEMS_PER_PAGE);
@@ -71,6 +74,7 @@ export const Projects = () => {
         
             <div className="projects-grid-wrapper">
                 <div className="projects-grid">
+                    {/* Renderização dos cards */}
                     {currentProjects.map((proj, index) => (
                         <div className="grid-cell" key={proj.id || index}>
                             <ProjectItem 
@@ -81,7 +85,8 @@ export const Projects = () => {
                                 linksite={proj['link-site']}
                                 linkgithub={proj['link-github']}
                                 description={proj['descrição']}
-                                id={proj['type']}
+                                
+                                id={proj.type as any}
                             />
                         </div>
                     ))}
