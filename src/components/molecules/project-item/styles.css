@@ -1,22 +1,25 @@
 .project-item-container {
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 1rem;
   background-color: #1a1a1a;
-  padding: 2rem;
   color: #ffffff;
   font-family: 'Arial', sans-serif; 
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
+
 .image-wrapper {
   position: relative;
-  width: 50%;
-  min-width: 400px;
-  height: auto;
-  aspect-ratio: 16 / 9; 
+  width: 40%; 
+  min-width: auto; 
+  height: 100%;
   overflow: hidden;
   cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 4px;
 }
 
 .project-img {
@@ -32,22 +35,24 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
-  padding: 1rem;
+  padding: 0.5rem;
   box-sizing: border-box;
 }
 
 .description-text {
-  font-size: 2rem;
+  font-size: 0.9rem; 
   font-weight: bold;
   text-align: center;
+  line-height: 1.2;
 }
+
 .image-wrapper:hover .description-overlay {
   opacity: 1;
 }
@@ -59,49 +64,58 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2rem;
-  width: 50%;
+  gap: 0.5rem;
+  width: 60%;
+  height: 100%;
 }
 .project-title {
-  font-size: 4rem; 
+  font-size: 1.4rem; 
   font-weight: 700;
   margin: 0;
-  line-height: 1;
-  position: relative;
-  display: inline-block;
-  width: fit-content;
+  line-height: 1.1;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .project-title::after {
   content: '';
   display: block;
-  width: 100%;
-  height: 4px;
+  width: 50px;
+  height: 2px;
   background-color: #fff;
-  margin-top: 10px;
+  margin-top: 4px;
 }
 .project-techs {
-  font-size: 2.5rem;
+  font-size: 1rem; 
   color: #ff4081;
   margin: 0;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .project-link {
-  font-size: 3.5rem;
+  font-size: 2rem; 
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   transition: opacity 0.2s;
+  margin-top: auto;
 }
 
 .project-link:hover {
   opacity: 0.8;
+  color: #ff4081;
 }
+
 .arrow {
-  font-size: 3rem;
-  transform: translateY(2px);
+  font-size: 2rem;
+  transform: translateY(1px);
 }
 .popup-overlay {
   position: fixed;
@@ -114,79 +128,45 @@
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  animation: fadeIn 0.2s ease-in-out;
 }
+
 .popup-box {
   background-color: #252525;
-  
-  border: 0.6rem solid #FF4375; 
+  border: 2px solid #FF4375;
   border-radius: 1.5rem;
-  
-  box-shadow: 0 0 15px rgba(255, 67, 117, 0.5), inset 0 0 15px rgba(255, 67, 117, 0.2);
-
-  padding: 3rem;
+  box-shadow: 0 0 15px rgba(255, 67, 117, 0.5);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   text-align: center;
-  min-width: 300px;
-  animation: scaleIn 0.2s ease-in-out;
 }
 
 .popup-title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: #fff;
   margin: 0;
-  font-weight: bold;
 }
 
 .popup-actions {
   display: flex;
-  gap: 1.5rem;
-  justify-content: center;
+  gap: 1rem;
 }
 
 .popup-btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  font-size: 1.8rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
   border-radius: 0.5rem;
-  transition: transform 0.2s, opacity 0.2s;
   color: #fff;
-  border: 2px solid transparent;
-}
-
-.popup-btn:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
 }
 
 .code-btn {
   background-color: #333;
-  border: 2px solid #fff;
-}
-.site-btn {
-  background-color: #FF4375;
-  color: #fff;
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  border: 1px solid #fff;
 }
 
-@keyframes scaleIn {
-  from { transform: scale(0.8); }
-  to { transform: scale(1); }
-}
-@media (max-width: 1024px) {
-  .project-item-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .image-wrapper, .content-wrapper {
-    width: 100%;
-  }
+.site-btn {
+  background-color: #FF4375;
 }
