@@ -2,7 +2,8 @@ export interface ProjectItemProps {
   img: string;
   title: string;
   techs: string;
-  link: string;
+  linksite?: string;
+  linkgithub: string;
   description?: string;
-  id: string;
+  id: 'frontend' | 'mobile' | 'design' | 'quantica' | 'machine';
 }

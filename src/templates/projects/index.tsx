@@ -24,7 +24,8 @@ export const Projects = () => {
                     img="/img/mock_image.png" 
                     title="Título do projeto" 
                     techs="React * SaaS * Styled Components" 
-                    link="https://meuprojeto.com"
+                    linksite="https://meuprojeto.com"
+                    linkgithub="https://meuprojeto.com"
                     description="Descrição do Projeto"
                     id="frontend"
                 />
