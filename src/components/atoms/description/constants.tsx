@@ -5,8 +5,8 @@ export const Linkedn: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 16 16"
-      fill="currentColor"     // <- pega a cor do .icon (color)
-      {...props}              // <- deixa o CSS controlar width/height
+      fill="currentColor"
+      {...props}
     >
       <desc>
         Linkedin Logo Bold Streamline Icon: https://streamlinehq.com
