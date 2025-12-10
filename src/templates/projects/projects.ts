@@ -2,7 +2,7 @@ export const projects = {
     "Quântica": [
         {
             "id": 9,
-            "titulo": "Olá, Mundo Quântico! - Summer School IBM",
+            "titulo": "Olá, Mundo Quântico!",
             "techs": ["Qiskit", "AerSimulator", "QuantumCircuit"],
             "link-github": "https://github.com/jsvictorias/Qiskit_Summer_2025/blob/main/lab-0/lab0_br.ipynb",
             "descrição": "descrição",
@@ -10,7 +10,7 @@ export const projects = {
         },
         {
             "id": 10,
-            "titulo": "Superposição, Interferência e Medições Quânticas",
+            "titulo": "Conceitos Básicos Quântica",
             "techs": ["Numpy", "Qiskit", "Matplotlib"],
             "link-github": "https://github.com/jsvictorias/Qiskit_Summer_2025/blob/main/lab-1/lab1.ipynb",
             "descrição": "descrição",
@@ -26,7 +26,7 @@ export const projects = {
         },
         {
             "id": 12,
-            "titulo": "Hamiltoniano com SQD Quântico",
+            "titulo": "Hamiltoniano com SQD",
             "techs": ["Qiskit", "Numpy", "Pyscf"],
             "link-github": "https://github.com/jsvictorias/Qiskit_Summer_2025/blob/main/lab-3/lab3.ipynb",
             "descrição": "descrição",
@@ -48,14 +48,6 @@ export const projects = {
             "descrição": "descrição",
             "type": "quantica",
         },
-        {
-            "id": 15,
-            "titulo": "Implementação do protocolo BB84",
-            "techs": ["Qiskit", "Numpy", "Matplotlib"],
-            "link-github": "https://github.com/KaueMiziara/gjk-fallfest-ufabc-2025/blob/main/bb84.ipynb",
-            "descrição": "descrição",
-            "type": "quantica",
-        }
     ],
     "Mobile": [
         {
@@ -89,7 +81,7 @@ export const projects = {
     "Machine Learning": [
         {
             "id": 7,
-            "titulo": "Previsão de Atrito de Colaboradores",
+            "titulo": "Previsão de Atrito Empresarial",
             "techs": ["Numpy", "Pandas", "Sklearn"],
             "link-github": "https://colab.research.google.com/drive/12142xKByl9KWYGmX3r2nqbNM_Sn01HS8?usp=sharing",
             "descrição": "descrição",

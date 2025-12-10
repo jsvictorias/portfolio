@@ -6,7 +6,6 @@ import { projectMessages } from './texts';
 import ProjectItem from '../../components/molecules/project-item';
 import { projects } from './projects'; // Importando seu JSON
 
-// Ícone simples para navegação (você pode substituir por um do Lucide/FontAwesome)
 const ArrowIcon = ({ rotated }: { rotated?: boolean }) => (
   <svg 
     width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
@@ -22,17 +21,14 @@ export const Projects = () => {
     const t = getT(projectMessages);
     const title = t('title');
 
-    // Estado para filtro e paginação
     const [activeFilters, setActiveFilters] = useState<string[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     
-    const ITEMS_PER_PAGE = 6; // 3 linhas * 2 colunas
+    const ITEMS_PER_PAGE = 6;
 
-    // 1. Processa o JSON em um array único baseado nos filtros
     const allProjectsList = useMemo(() => {
         let list: any[] = [];
         
-        // Se não tiver filtro, pega tudo. Se tiver, pega só as chaves selecionadas
         const keysToSearch = activeFilters.length > 0 
             ? activeFilters 
             : Object.keys(projects);
@@ -48,14 +44,13 @@ export const Projects = () => {
         return list;
     }, [activeFilters]);
 
-    // 2. Lógica de corte para paginação
     const totalPages = Math.ceil(allProjectsList.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const currentProjects = allProjectsList.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
     const handleFilter = (ids: string[]) => {
         setActiveFilters(ids);
-        setCurrentPage(1); // Reseta para página 1 ao filtrar
+        setCurrentPage(1);
     };
 
     const handleNextPage = () => {
@@ -92,7 +87,6 @@ export const Projects = () => {
                     ))}
                 </div>
 
-                {/* Navegação no canto inferior direito */}
                 {totalPages > 1 && (
                     <div className="pagination-controls">
                         <span className="page-indicator">

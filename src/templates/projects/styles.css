@@ -4,7 +4,7 @@
     color: var(--text-color);
     display: flex;
     flex-direction: column;
-    padding-bottom: 4rem; /* Espaço extra para a paginação não colar no fundo */
+    padding-bottom: 4rem;
 }
 
 .title-projects {
@@ -21,56 +21,51 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza a grid na tela */
+    align-items: center;
     position: relative;
     width: 100%;
 }
 
 .projects-grid {
     display: grid;
-    /* 2 Colunas fixas conforme solicitado */
     grid-template-columns: repeat(2, 412px);
-    /* 3 linhas implícitas pela paginação de 6 itens */
     grid-template-rows: repeat(3, 148px);
-    
-    gap: 10rem; /* Distância grande solicitada */
+    gap: 10rem;
     padding: 2rem;
     justify-content: center;
     margin: 0 auto;
 }
-
-/* Célula que força o tamanho do componente */
 .grid-cell {
-    width: 412px;
-    height: 148px;
+    width: 500px;
+    height: 185px;
     overflow: hidden; 
     position: relative;
 }
 .grid-cell > div {
     width: 100% !important;
     height: 100% !important;
-    padding: 1rem !important; /* Reduz padding interno para caber melhor */
-    gap: 1rem !important; /* Reduz gap interno */
+    padding: 1rem !important; 
+    gap: 1rem !important;
 }
-
-/* --- NAVEGAÇÃO / PAGINAÇÃO --- */
 .pagination-controls {
     position: absolute;
     bottom: 0;
-    right: 5%; /* Canto inferior direito */
+    right: 5%;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     padding: 1rem;
-    background: rgba(0,0,0,0.5); /* Fundo sutil */
+    background: rgba(0,0,0,0.5);
     border-radius: 2rem;
     backdrop-filter: blur(5px);
+    border: var(--color-dark-pink) 0.2rem solid;
 }
 
 .page-indicator {
     font-size: 1.5rem;
     font-weight: bold;
     margin-right: 0.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .nav-btn {
@@ -97,31 +92,27 @@
     opacity: 0.3;
     cursor: not-allowed;
 }
-
-/* --- RESPONSIVIDADE --- */
 @media (max-width: 1024px) {
     .title-projects {
         font-size: 5rem;
     }
 
     .projects-grid {
-        /* Vira 1 coluna no mobile */
         grid-template-columns: 1fr; 
-        grid-template-rows: auto; /* Altura automática ou fixa se preferir */
-        gap: 3rem; /* Diminui o gap gigante no mobile */
+        grid-template-rows: auto;
+        gap: 3rem;
         width: 90%;
     }
 
     .grid-cell {
-        /* No mobile, podemos deixar a largura fluida ou manter fixa se couber */
         width: 100%; 
         max-width: 412px;
-        height: 148px; /* Mantém a altura solicitada */
+        height: 185px;
         margin: 0 auto;
     }
 
     .pagination-controls {
-        position: static; /* No mobile, sai do canto absoluto e vai para baixo do fluxo */
+        position: static;
         margin-top: 2rem;
         justify-content: center;
         width: 100%;
