@@ -3,3 +3,10 @@
     background-color: var(--bg-color);
     color: var(--text-color);
 }
+.title-projects {
+    font-size: 9rem;
+    text-align: center;
+}
+.filter-container {
+    margin: 3rem;
+}
