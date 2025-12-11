@@ -159,9 +159,9 @@
 .accordion-content.open {
     max-height: 30.75rem;
     opacity: 1;
+    overflow-y: auto;
     transition-delay: 0s, 0.1s;
 }
-
 .accordion-description {
     padding: 0 0 1.875rem 3.625rem; 
     font-size: 2rem;
