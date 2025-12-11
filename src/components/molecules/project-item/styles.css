@@ -106,11 +106,12 @@
   gap: 0.5rem;
   transition: opacity 0.2s;
   margin-top: auto;
+  transition: all 0.5s;
 }
 
 .project-link:hover {
   opacity: 0.8;
-  color: #ff4081;
+  color: var(--color-baby-pink);
 }
 
 .arrow {
@@ -143,7 +144,7 @@
 }
 
 .popup-title {
-  font-size: 1.5rem;
+  font-size: 3.5rem;
   color: #fff;
   margin: 0;
 }
@@ -165,8 +166,10 @@
 .code-btn {
   background-color: #333;
   border: 1px solid #fff;
+  font-size: 1.9rem;
 }
 
 .site-btn {
   background-color: #FF4375;
+  font-size: 1.9rem;
 }

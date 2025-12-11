@@ -50,3 +50,14 @@ body {
 .container-projects {
   scroll-margin-top: 20vh;
 }
+/* CSS Global */
+::selection {
+  background-color: var(--color-baby-pink);
+  color: #000000; 
+}
+
+/* Para compatibilidade com Firefox */
+::-moz-selection {
+  background-color: var(--color-baby-pink);
+  color: #000000; 
+}

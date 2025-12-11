@@ -61,7 +61,7 @@ export const projects = {
             "titulo": "POMO",
             "translationKey": "pomo",   
             "techs": ["React Native", "CSS", "TypeScript"],
-            "link-site": "",
+            "link-site": "https://www.linkedin.com/posts/julia-vic-santos_reactnative-typescript-mobile-activity-7397059999912333312-s8bI?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD8jTt0B1nEI2h9I4PeTKK58J6-tUEuaxqs",
             "link-github": "https://github.com/jsvictorias/pomo_app",
             "type": "mobile",
             "img": "/img/pomo.png"
@@ -71,7 +71,7 @@ export const projects = {
             "titulo": "Monitoramento de Enchentes",
             "translationKey": "monitoramentoDeEnchentes",   
             "techs": ["React Native", "CSS", "TypeScript"],
-            "link-site": "",
+            "link-site": "https://www.linkedin.com/posts/julia-vic-santos_aplicativo-de-preven%C3%A7%C3%A3o-de-desastres-naturais-activity-7338368977443696640-ry0D?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD8jTt0B1nEI2h9I4PeTKK58J6-tUEuaxqs",
             "link-github": "https://github.com/jsvictorias/controle-de-desabamentos",
             "type": "mobile",
             "img": "/img/monitoramento.png"
@@ -128,16 +128,16 @@ export const projects = {
             "type": "frontend",
             "img": "/img/tictactoe.png",
         },
-        {
-            "id": 3,
-            "titulo": "LineCare",
-            "translationKey": "lineCare",   
-            "techs": ["React", "Styled Components", "TypeScript"],
-            "link-site": "",
-            "link-github": "",
-            "type": "frontend",
-            "img": "/img/line.png",
-        }
+        // {
+        //     "id": 3,
+        //     "titulo": "LineCare",
+        //     "translationKey": "lineCare",   
+        //     "techs": ["React", "Styled Components", "TypeScript"],
+        //     "link-site": "",
+        //     "link-github": "",
+        //     "type": "frontend",
+        //     "img": "/img/line.png",
+        // }
     ],
     "Design": [
         {
