@@ -81,7 +81,7 @@ export const projects = {
             "titulo": "ShellPass",
             "translationKey": "shellPass",   
             "techs": ["React Native", "CSS", "TypeScript"],
-            "link-site": "",
+            "link-site": "https://youtu.be/L0wH3BLVAx8",
             "link-github": "https://github.com/jsvictorias/ShellPass",
             "type": "mobile",
             "img": "/img/shellpass.png"
