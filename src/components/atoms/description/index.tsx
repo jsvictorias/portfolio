@@ -13,7 +13,7 @@ export const Description = () => {
   const freeText = t('freeText');
 
   const cv_pt = 'https://drive.google.com/file/d/1-iAfQCB4p0JZH71RNm4vq0rcuvd61Cmx/view?usp=sharing';
-  const cv_en = 'https://drive.google.com/file/d/1OdTBnYBg3vxlYz8WtjJX0Rxsb17RK5hb/view?usp=sharing';
+  const cv_en = 'https://drive.google.com/file/d/1Jp4HuBFizpEh6wH_uqFKrwWxP2SCq3Hl/view?usp=drivesdk';
 
   const resumeLink = currentLanguage === 'pt' ? cv_pt : cv_en;
 
