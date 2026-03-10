@@ -10,5 +10,15 @@ export const articlesData = {
             "type": "quantica",
             "date": "Nov 9, 2025"
         },
+        {
+            "id": 2,
+            "titulo": "From Density Matrix Formalism to Quantum Computing Applications",
+            "translationKey": "Desnity Matrix",
+            "techs": ["Math"],
+            "link-github": "https://medium.com/@juliasantos7652/from-density-matrix-formalism-to-applications-of-quantum-computing-db6e6a0e36f0",
+            "descrição": "Explicando o formalismo da matriz densidade e suas aplicações na computação quântica.",
+            "type": "quantica",
+            "date": "Mar 8, 2026"
+        }
     ]
 };
