@@ -12,8 +12,8 @@ export const Description = () => {
   const sitesText = t('sitesText'); 
   const freeText = t('freeText');
 
-  const cv_pt = 'https://drive.google.com/file/d/1-iAfQCB4p0JZH71RNm4vq0rcuvd61Cmx/view?usp=sharing';
-  const cv_en = 'https://drive.google.com/drive/folders/1XLTtIOKUg6aF2BHfkvh1eVi9-OPZuAAT?hl=pt-br';
+  const cv_pt = 'https://drive.google.com/file/d/1dA-Ay-JiN-MC6NtGYfuG8Zd13KVa6YUa/view?usp=drive_link';
+  const cv_en = 'https://drive.google.com/file/d/11sxnMhord1TaQDcnvjAFJj_D8vPAtg9m/view?usp=drive_link';
 
   const resumeLink = currentLanguage === 'pt' ? cv_pt : cv_en;
 
