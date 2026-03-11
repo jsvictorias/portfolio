@@ -12,6 +12,7 @@ export const Curriculum = () => {
   const { getT } = useLanguage();
   const t = getT(articleMessages);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const allArticles = useMemo(() => {
