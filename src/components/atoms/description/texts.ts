@@ -1,15 +1,12 @@
 export const descriptionMessages = {
   pt: {
-    helloText: "Olá Visitante, meu nome é",
+    helloText: "Olá, meu nome é",
     nameText: "Júlia Victoria Santos",
-    sitesText: "Desenvolvedora de Software e Estudante de Computação Quântica",
-    freeText: "Freelancer",
-    quantum: "E"
+    sitesText: "Desenvolvedora de Software e Estudante de Computação Quântica"
   },
   en: {
-    helloText: "Hello Visitor, my name is",
+    helloText: "Hello, my name is",
     nameText: "Júlia Victoria Santos",
-    sitesText: "Website Developer and Quantum Computing Student",
-    freeText: "Freelancer",
+    sitesText: "Software Developer and Quantum Computing Student"
   },
 };

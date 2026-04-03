@@ -9,25 +9,22 @@ export const Description = () => {
   const t = getT(descriptionMessages); 
   const helloText = t('helloText'); 
   const nameText = t('nameText');   
-  const sitesText = t('sitesText'); 
-  const freeText = t('freeText');
+  const sitesText = t('sitesText')
 
-  const cv_pt = 'https://drive.google.com/file/d/1dA-Ay-JiN-MC6NtGYfuG8Zd13KVa6YUa/view?usp=drive_link';
-  const cv_en = 'https://drive.google.com/file/d/11sxnMhord1TaQDcnvjAFJj_D8vPAtg9m/view?usp=drive_link';
+  const cv_pt = 'https://drive.google.com/file/d/1eXMuNaRCaFMqStngs6_xUDPHnntj-jGS/view';
+  const cv_en = 'https://drive.google.com/file/d/1Vdsz0HsYnUhd8iPMau23v1cdMpwTgaz4/view';
 
   const resumeLink = currentLanguage === 'pt' ? cv_pt : cv_en;
 
   const typedHello = useTyping({ text: helloText, startDelay: 800 });
   const typedName  = useTyping({ text: nameText, startDelay: 500 });
   const typedSites = useTyping({ text: sitesText, startDelay: 1000 });
-  const typedFree  = useTyping({ text: freeText, startDelay: 1500 });
 
   return(
     <div className='container-description'>
       <h2 className='hello typing'>{typedHello}</h2>
       <h1 className='name typing'>{typedName}</h1>
       <h3 className='sites typing'>{typedSites}</h3>
-      <h4 className='free typing'>{typedFree}</h4>
 
       <ul className="container-icons">
         <li className="icon">
