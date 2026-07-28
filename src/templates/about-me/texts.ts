@@ -6,7 +6,7 @@ export const aboutMeMessages = {
     Fundamentado em <span class="highlight">Clean Code</span>, princípios <span class="highlight">SOLID</span>,
 <span class="highlight">Design Patterns</span>, arquitetura escalável e práticas modernas de DevOps (CI/CD, conceitos de IaC).
 Além da engenharia de software, possuo 2 anos de experiência prática em <span class="highlight">Computação Quântica</span>:
-Quantum Machine Learning (QML). Como Qiskit Advocate, vencedora do 1º lugar em um Hackathon de
+Quantum Machine Learning (QML). Como <span class="highlight">Qiskit Advocate</span>, vencedora do 1º lugar em um Hackathon de
 Computação Quântica (UFABC) e autora de artigos técnicos sobre mecânica quântica (formalismo de matriz
 de densidade), integro as melhores práticas de engenharia de software ao código voltado para pesquisa —
 aplicando arquitetura limpa, controle de versão, testes automatizados e reprodutibilidade ao software
@@ -28,7 +28,7 @@ algoritmos variacionais.`,
     Built upon <span class="highlight">Clean Code</span>, <span class="highlight">SOLID</span> principles,
 <span class="highlight">Design Patterns</span>, scalable architecture, and modern DevOps practices (CI/CD and Infrastructure as Code concepts).
 In addition to software engineering, I have 2 years of hands-on experience in <span class="highlight">Quantum Computing</span>,
-particularly in Quantum Machine Learning (QML). As a Qiskit Advocate, winner of 1st place in a
+particularly in Quantum Machine Learning (QML). As a <span class="highlight">Qiskit Advocate</span>, winner of 1st place in a
 Quantum Computing Hackathon (UFABC), and author of technical articles on Quantum Mechanics (density matrix formalism),
 I integrate software engineering best practices into research-oriented code by applying clean architecture,
 version control, automated testing, and reproducibility to quantum software.`,
